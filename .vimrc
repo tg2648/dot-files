@@ -1,26 +1,27 @@
 " https://dougblack.io/words/a-good-vimrc.html
-" https://github.com/junegunn/vim-plug
 " https://nvie.com/posts/how-i-boosted-my-vim/
 
 set nocompatible
 set history=1000        " remember more commands and search history
+set encoding=utf8
+set hidden
 
 """ PLUGINS """ {{{
+" https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
-Plug 'kaicataldo/material.vim'
+Plug 'kaicataldo/material.vim'      " https://github.com/kaicataldo/material.vim
+Plug 'vim-airline/vim-airline'      " https://github.com/vim-airline/vim-airline
+Plug 'sheerun/vim-polyglot'         " Language packs https://github.com/sheerun/vim-polyglot
+Plug 'preservim/nerdtree'           " Tree explorer https://github.com/preservim/nerdtree
 call plug#end()
-"}}}
+" }}}
 
 """ COLORS """ {{{
 syntax enable           " enable syntax processing
-
-" true colors are a requirement for material scheme to work properly
-if (has('termguicolors'))
-  set termguicolors
-endif
-
+set termguicolors
 let g:material_theme_style = 'darker'
-colorscheme material    " https://github.com/kaicataldo/material.vim
+set background=dark
+colorscheme material
 " }}}
 
 """ SPACES & TABS """ {{{
@@ -55,12 +56,12 @@ set smartcase           " ignore case if search pattern is all lowercase, case-s
 
 
 " turn off search highlight with ,<space>
-nnoremap <leader><space> :nohlsearch<CR> 
+nnoremap <leader><space> :nohlsearch<CR>
 " }}}
 
 """ FOLDING """ {{{
 set foldenable          " enable folding
-set foldlevelstart=10   " open most folds by default. 
+set foldlevelstart=10   " open most folds by default.
 " 0 - all folds will be closed; 99 - folds are always open; 10 - only very nested blocks are folded
 set foldnestmax=10      " 10 nested fold max
 nnoremap <space> za     " <space> open/closes folds
@@ -84,7 +85,7 @@ set directory=~/.vim/swap//
 " can also add other directories to ensure the files are
 " saved in case backup/undo folders don't exist
 " e.g. ,~/.tmp,~/tmp,/var/tmp,/tmp
-" }}}
+"  }}}
 
 """ CUSTOM FUNCTIONS """ {{{
 " toggle between number and relativenumber
@@ -103,12 +104,11 @@ let mapleader=","                       " change the mapleader from \ to ,
 nnoremap <leader>ev :e $MYVIMRC<CR>     " edit vimrc with ,ev
 nnoremap <leader>sv :so $MYVIMRC<CR>    " reload vimrc with ,sv
 set pastetoggle=<F2>                    " paste mode, disabling all kinds of smartness and just pasting a whole buffer of text
-"}}}
+" }}}
 
 """ FILETYPE-SPECIFIC """ {{{
 filetype plugin indent on
-" Makefiles
-autocmd FileType make setlocal noexpandtab
+autocmd FileType make setlocal noexpandtab " Makefiles
 " }}}
 
 " fold .vimrc based on markers
