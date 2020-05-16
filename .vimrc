@@ -1,10 +1,24 @@
 " https://dougblack.io/words/a-good-vimrc.html
+" https://github.com/junegunn/vim-plug
 
 set nocompatible
 
+""" PLUGINS """ {{{
+call plug#begin('~/.vim/plugged')
+Plug 'kaicataldo/material.vim'
+call plug#end()
+"}}}
+
 """ COLORS """ {{{
-colorscheme ron         " one of default schemes
 syntax enable           " enable syntax processing
+
+" true colors are a requirement for material scheme to work properly
+if (has('termguicolors'))
+  set termguicolors
+endif
+
+let g:material_theme_style = 'darker'
+colorscheme material    " https://github.com/kaicataldo/material.vim
 " }}}
 
 """ SPACES & TABS """ {{{
@@ -25,13 +39,15 @@ set lazyredraw          " redraw only when we need to
 set showmatch           " highlight matching [{()}]
 set mouse=a             " enable mouse usage
 " set textwidth=120       " wrap lines at 120 characters
+set scrolloff=5         " always show some lines above/below the cursor
+set sidescrolloff=5
 " }}}
 
 """ SEARCH """ {{{
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 
-" turn off search highlight with ,<space>
+" turn off search highlight with \<space>
 nnoremap <leader><space> :nohlsearch<CR> 
 " }}}
 
