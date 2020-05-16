@@ -1,7 +1,9 @@
 " https://dougblack.io/words/a-good-vimrc.html
 " https://github.com/junegunn/vim-plug
+" https://nvie.com/posts/how-i-boosted-my-vim/
 
 set nocompatible
+set history=1000        " remember more commands and search history
 
 """ PLUGINS """ {{{
 call plug#begin('~/.vim/plugged')
@@ -27,10 +29,13 @@ set shiftwidth=4        " indent also with 4 spaces
 set softtabstop=4       " number of spaces in tab when editing
 set expandtab           " tabs are spaces
 set autoindent          " use identation of previous line
+set copyindent          " copy the previous indentation on autoindenting
 set smartindent         " use intelligent identation
 " }}}
 
 """ UI CONFIG """ {{{
+set visualbell          " don't beep
+set noerrorbells        " don't beep
 set number              " show line numbers
 set showcmd             " show command in bottom bar
 " set cursorline          " highlight current line
@@ -46,8 +51,10 @@ set sidescrolloff=5
 """ SEARCH """ {{{
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
+set smartcase           " ignore case if search pattern is all lowercase, case-sensitive otherwise
 
-" turn off search highlight with \<space>
+
+" turn off search highlight with ,<space>
 nnoremap <leader><space> :nohlsearch<CR> 
 " }}}
 
@@ -60,14 +67,23 @@ nnoremap <space> za     " <space> open/closes folds
 set foldmethod=syntax   " fold based on syntax
 " }}}
 
-""" BACKUPS & UNDO """ {{{
+""" BACKUPS ETC. """ {{{
+" turn backup ON
 set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.vim/backup//
 set writebackup
 
-set undodir=~/.vim-undo,~/.tmp,~/tmp,/var/tmp,/tmp
+" turn undo ON
+set undofile
+set undodir=~/.vim/undo//
+
+" turn swap files ON
+set swapfile
+set directory=~/.vim/swap//
+
+" can also add other directories to ensure the files are
+" saved in case backup/undo folders don't exist
+" e.g. ,~/.tmp,~/tmp,/var/tmp,/tmp
 " }}}
 
 """ CUSTOM FUNCTIONS """ {{{
@@ -82,7 +98,15 @@ function! ToggleNumber()
 endfunc
 " }}}
 
+"""SHORTCUTS """ {{{
+let mapleader=","                       " change the mapleader from \ to ,
+nnoremap <leader>ev :e $MYVIMRC<CR>     " edit vimrc with ,ev
+nnoremap <leader>sv :so $MYVIMRC<CR>    " reload vimrc with ,sv
+set pastetoggle=<F2>                    " paste mode, disabling all kinds of smartness and just pasting a whole buffer of text
+"}}}
+
 """ FILETYPE-SPECIFIC """ {{{
+filetype plugin indent on
 " Makefiles
 autocmd FileType make setlocal noexpandtab
 " }}}
