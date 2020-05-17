@@ -5,3 +5,5 @@ source /usr/share/autojump/autojump.bash
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+EDITOR=vim
