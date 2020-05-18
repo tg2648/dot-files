@@ -8,6 +8,6 @@ if [ -f ~/.vimrc ]; then
     mv ~/.vimrc ~/.vimrc_backup
 fi
 
-mv dot-files/.vimrc ~/.vimrc
+mv ~/dot-files/.vimrc ~/.vimrc
 
 echo "Finished dot file setup"
