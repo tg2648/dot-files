@@ -4,7 +4,7 @@ mv ~/dot-files/.bashrc ~/.my_bashrc
 echo "source ~/.my_bashrc" >> ~/.bashrc
 
 if [ -f ~/.vimrc ]; then
-    echo ".vimrc exist, creating a backup .vimrc_backup"
+    echo ".vimrc exists, creating a backup .vimrc_backup"
     mv ~/.vimrc ~/.vimrc_backup
 fi
 
