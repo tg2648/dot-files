@@ -5,6 +5,7 @@ set nocompatible
 set history=1000        " remember more commands and search history
 set encoding=utf8
 set hidden
+let mapleader=","       " change the mapleader from \ to ,
 
 """ PLUGINS """ {{{
 " https://github.com/junegunn/vim-plug
@@ -100,7 +101,6 @@ endfunc
 " }}}
 
 """SHORTCUTS """ {{{
-let mapleader=","                       " change the mapleader from \ to ,
 nnoremap <leader>ev :e $MYVIMRC<CR>     " edit vimrc with ,ev
 nnoremap <leader>sv :so $MYVIMRC<CR>    " reload vimrc with ,sv
 set pastetoggle=<F2>                    " paste mode, disabling all kinds of smartness and just pasting a whole buffer of text
