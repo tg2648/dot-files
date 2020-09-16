@@ -99,10 +99,22 @@ function! ToggleNumber()
 endfunc
 " }}}
 
-"""SHORTCUTS """ {{{
+""" SHORTCUTS """ {{{
 nnoremap <leader>ev :e $MYVIMRC<CR>     " edit vimrc with ,ev
 nnoremap <leader>sv :so $MYVIMRC<CR>    " reload vimrc with ,sv
 set pastetoggle=<F2>                    " paste mode, disabling all kinds of smartness and just pasting a whole buffer of text
+" }}}
+
+""" BUFFERS/SPLITS """ {{{
+" move between splits with CTRL+J/K/L/H
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" open new split panes to right and bottom
+set splitbelow
+set splitright
 " }}}
 
 """ FILETYPE-SPECIFIC """ {{{
