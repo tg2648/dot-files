@@ -26,9 +26,8 @@ colorscheme material
 " }}}
 
 """ SPACES & TABS """ {{{
-set tabstop=4           " number of visual spaces per TAB
 set shiftwidth=4        " indent also with 4 spaces
-set softtabstop=4       " number of spaces in tab when editing
+set softtabstop=4       " number of spaces when hitting tab
 set expandtab           " tabs are spaces
 set autoindent          " use identation of previous line
 set copyindent          " copy the previous indentation on autoindenting
