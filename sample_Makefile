@@ -1,8 +1,8 @@
 TARGETS = main
 
-CC  = gcc			# Compiler
+CC = gcc			# Compiler
 INCLUDES = 			# Additional include directories
-CFLAGS  = -g -Wall $(INCLUDES)	# Compilation options
+CFLAGS = -g -Wall $(INCLUDES)	# Compilation options
 LDFLAGS = -g			# Linking options
 LDLIBS =			# Linking libraries
 
