@@ -106,6 +106,12 @@ set pastetoggle=<F2>                    " paste mode, disabling all kinds of sma
 " }}}
 
 """ BUFFERS/SPLITS """ {{{
+" buffer switching using Cmd-arrows in Mac and Alt-arrows in Linux
+:nnoremap <D-Right> :bnext<CR>
+:nnoremap <M-Right> :bnext<CR>
+:nnoremap <D-Left> :bprevious<CR>
+:nnoremap <M-Left> :bprevious<CR>
+
 " move between splits with CTRL+J/K/L/H
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
