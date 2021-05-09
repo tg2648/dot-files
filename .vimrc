@@ -2,7 +2,7 @@
 " https://nvie.com/posts/how-i-boosted-my-vim/
 
 set nocompatible
-set history=1000        " remember more commands and search history
+set history=10000        " remember more commands and search history
 set encoding=utf8
 set hidden
 let mapleader=","       " change the mapleader from \ to ,
